@@ -1,12 +1,22 @@
 # Dimensionality Reduction Compare
 
-Side-by-side PCA vs t-SNE comparison on the same synthetic clusters, showing what each method preserves.
+PCA and t-SNE can look at the same cells and tell you different stories. Knowing what each one preserves — and quietly distorts — is the difference between insight and self-deception.
 
-## Demo Output
+## Why This Matters
+
+PCA keeps real distances but misses nonlinear structure. t-SNE reveals tight local clusters, but its distances *between* clusters, and even cluster sizes, are not meaningful. Seeing them side by side keeps you honest about what a plot is — and is not — actually telling you.
+
+## How It Works
+
+1. Reduce the same dataset with PCA and with t-SNE.
+2. Plot both, coloured by the true groups.
+3. Compare what each method reveals and hides.
+
+## What the Demo Shows
 
 ![Demo](figures/demo.png)
 
-The chart above is generated from simulated data by `demo.py` — run it yourself and it regenerates identically.
+The demo builds four clusters. PCA spreads them along axes of real variance; t-SNE packs them into tight, cleanly separated blobs. Same data, two lenses — a direct reminder not to over-read a t-SNE gap.
 
 ## Run It
 
@@ -15,6 +25,4 @@ pip install -r requirements.txt
 python demo.py
 ```
 
-## Note
-
-This project demonstrates the technique on synthetic data so it is fully reproducible with no external downloads.
+> Demonstrated on synthetic data, so the whole thing is reproducible with no external downloads.
